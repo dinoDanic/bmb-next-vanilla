@@ -7,7 +7,7 @@ import "@kodiui/ui/style.css";
 import classNames from "classnames";
 import { useTheme } from "../hooks/useTheme";
 
-const roboto = Noto_Sans({ subsets: ["latin"], weight: ["400", "500", "900"] });
+const roboto = Noto_Sans({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const theme = useTheme();

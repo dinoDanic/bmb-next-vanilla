@@ -1,3 +1,4 @@
+import { Sidebar } from "@/feautres/sidebar";
 import { ThemeProvider } from "@/styles";
 
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <Sidebar />
+        {children}
+      </ThemeProvider>
     </html>
   );
 }

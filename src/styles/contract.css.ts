@@ -7,6 +7,7 @@ export const lightTheme = createTheme(vars, {
   ...restTokens,
   colors: {
     ...colors,
+    brand: colors.red10,
   },
 });
 
