@@ -1,4 +1,4 @@
-import { Sidebar } from "@/feautres/sidebar";
+import { Sidebar } from "@/features/sidebar";
 import { ThemeProvider } from "@/styles";
 
 export const metadata = {

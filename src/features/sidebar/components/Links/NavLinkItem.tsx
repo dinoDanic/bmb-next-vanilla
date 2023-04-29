@@ -1,7 +1,7 @@
 "use client";
 
 import { Text } from "@/components";
-import { NavLink, useSidebarStore } from "@/feautres/sidebar";
+import { NavLink, useSidebarStore } from "@/features/sidebar";
 import { FC } from "react";
 
 export const NavLinkItem: FC<NavLink> = (link) => {

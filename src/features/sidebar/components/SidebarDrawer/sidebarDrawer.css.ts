@@ -3,9 +3,9 @@ import { recipe } from "@vanilla-extract/recipes";
 
 export const sideBarOpen = recipe({
   base: {
-    transform: "translateX(-100%)",
-    background: vars.colors.red8,
-    transition: "0.2s ease all",
+    transform: "translateX(-100%) skew(15deg)",
+    transition: `${vars.animationTimingFunction["ease-out-3"]} 0.3s`,
+    height: "100%",
   },
   variants: {
     state: {

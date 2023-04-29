@@ -1,4 +1,4 @@
-import { navLinks } from "@/feautres/sidebar";
+import { navLinks } from "@/features/sidebar";
 import { Box, Cluster } from "@kodiui/ui";
 import { SidebarDrawer } from "../SidebarDrawer";
 import { NavLinkItem } from "./NavLinkItem";
