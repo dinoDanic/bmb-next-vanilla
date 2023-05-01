@@ -1,13 +1,22 @@
 import { ChevronRight } from "@/assets";
 import { Text, TextLink } from "@/components";
 import { Split } from "@kodiui/ui";
-import React, { FC } from "react";
+import React, { FC, ReactElement } from "react";
 import { useSidebarStore } from "../stores/useSidebarStore";
+import { CategoryNames } from "../utils/categoryLinks";
+import { NavLinkNames } from "../utils/navLinks";
 
 export interface MenuLink {
   href: string;
+  name: CategoryNames;
+  belongsTo: NavLinkNames;
+  children?: MenuLinkChild[];
+}
+
+export interface MenuLinkChild {
+  href: string;
   name: string;
-  children?: MenuLink[];
+  svg?: ReactElement;
 }
 
 export const MenuLink: FC<MenuLink> = (props) => {
@@ -19,8 +28,6 @@ export const MenuLink: FC<MenuLink> = (props) => {
   const tone = isActive ? "brand" : "neutral";
 
   const onMouseOver = () => setCategoryLink(props);
-
-  // const onMouseLeave = () => setCategoryLink(undefined);
 
   const withChildren = (
     <Split>
@@ -34,11 +41,7 @@ export const MenuLink: FC<MenuLink> = (props) => {
   const content = hasChildren ? withChildren : base;
 
   return (
-    <div
-      onMouseOver={onMouseOver}
-      onFocus={onMouseOver}
-      // onMouseLeave={onMouseLeave}
-    >
+    <div onMouseOver={onMouseOver} onFocus={onMouseOver}>
       <Text weight="medium" tone={tone}>
         <TextLink href={props.href}>{content}</TextLink>
       </Text>

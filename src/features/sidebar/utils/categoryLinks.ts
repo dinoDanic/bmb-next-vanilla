@@ -1,10 +1,19 @@
 import { routes } from "@/routes";
 import { MenuLink } from "../components/MenuLink";
 
+export type CategoryNames =
+  | "Roštilji i pečenjare"
+  | "Krušne peći"
+  | "Uređenje okoliša"
+  | "Dekorativne obloge"
+  | "Industrijska galanterija"
+  | "Ostali proizvodi";
+
 export const categoryLinks: MenuLink[] = [
   {
-    name: "Rostilji i pecenjare",
+    name: "Roštilji i pečenjare",
     href: routes.rostiljiIPecenjare,
+    belongsTo: "Proizvodi",
     children: [
       { name: "Mini kamini", href: "#" },
       { name: "Rostilji", href: "#" },
@@ -14,8 +23,9 @@ export const categoryLinks: MenuLink[] = [
     ],
   },
   {
-    name: "Krusne peci",
+    name: "Krušne peći",
     href: routes.krusnePeci,
+    belongsTo: "Proizvodi",
     children: [
       { name: "Hobby", href: "#" },
       { name: "Profi", href: "#" },
@@ -23,8 +33,9 @@ export const categoryLinks: MenuLink[] = [
     ],
   },
   {
-    name: "Uredenje okolisa",
+    name: "Uređenje okoliša",
     href: routes.uredenjeOkolisa,
+    belongsTo: "Proizvodi",
     children: [
       { name: "Žardinjere", href: "#" },
       { name: "Fontane", href: "#" },
@@ -36,7 +47,19 @@ export const categoryLinks: MenuLink[] = [
       { name: "Ostali betonski elementi", href: "#" },
     ],
   },
-  { name: "Dekorativne obloge", href: routes.dekorativneObloge },
-  { name: "Industrijska galanterija", href: routes.industrijkaGalanterija },
-  { name: "Ostali proizvodi", href: routes.ostaliProizvodi },
+  {
+    name: "Dekorativne obloge",
+    belongsTo: "Proizvodi",
+    href: routes.dekorativneObloge,
+  },
+  {
+    name: "Industrijska galanterija",
+    belongsTo: "Proizvodi",
+    href: routes.industrijkaGalanterija,
+  },
+  {
+    name: "Ostali proizvodi",
+    belongsTo: "Proizvodi",
+    href: routes.ostaliProizvodi,
+  },
 ];

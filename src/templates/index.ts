@@ -1,0 +1,1 @@
+export { CenterTemplate } from "./CenterTemplate";

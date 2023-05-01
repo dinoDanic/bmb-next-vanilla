@@ -20,7 +20,7 @@ export const SidebarDrawer = () => {
       <Box
         width="full"
         position="absolute"
-        left="0"
+        __left="-100%"
         height="screen"
         top="0"
         zIndex="20"
@@ -56,9 +56,9 @@ const SidebarContent = () => {
       height="full"
       zIndex="30"
       background="white"
-      paddingTop="5xxl"
-      p="md"
+      p="2xl"
     >
+      <Box paddingTop="5xxl" />
       {contentByCategory()}
     </Box>
   );

@@ -3,6 +3,9 @@ import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
 
 export const textRecipe = recipe({
+  base: {
+    transition: "0.2s ease color",
+  },
   variants: {
     size: {
       xsmall: {

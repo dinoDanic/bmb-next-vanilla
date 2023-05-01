@@ -5,7 +5,7 @@ import { NavLinkItem } from "./NavLinkItem";
 
 export const Links = () => {
   return (
-    <Box p="md" position="relative">
+    <Box p="2xl" position="relative">
       <Cluster gap="3xl" position="relative" zIndex="40">
         {navLinks.map((link) => {
           return <NavLinkItem key={link.name} {...link} />;

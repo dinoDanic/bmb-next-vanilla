@@ -1,6 +1,7 @@
 import React from "react";
 import { FlexBox } from "@kodiui/ui";
-import { Actions, Links, Logo } from "./components";
+import { Links } from "./components";
+// import { Actions, Links, Logo } from "./components";
 
 export const Sidebar = () => {
   return (
@@ -11,8 +12,8 @@ export const Sidebar = () => {
       width="full"
     >
       <Links />
-      <Logo />
-      <Actions />
+      {/* <Logo /> */}
+      {/* <Actions /> */}
     </FlexBox>
   );
 };
