@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useSwiper } from "swiper/react";
 import { Button } from "../inputs/Button/Button";
@@ -10,20 +12,15 @@ export const SwiperNavButtons = () => {
   const prev = () => swiper.slidePrev();
   const next = () => swiper.slideNext();
 
+  const buttonProps = {
+    variant: "ghost",
+    tone: "neutral",
+  } as const;
+
   return (
     <Cluster>
-      <Button
-        tone="light"
-        variant="transparent"
-        onClick={prev}
-        icon={<ArrowNarrowLeft />}
-      />
-      <Button
-        tone="light"
-        variant="transparent"
-        icon={<ArrowNarrowRight />}
-        onClick={next}
-      />
+      <Button {...buttonProps} onClick={prev} icon={<ArrowNarrowLeft />} />
+      <Button {...buttonProps} onClick={next} icon={<ArrowNarrowRight />} />
     </Cluster>
   );
 };

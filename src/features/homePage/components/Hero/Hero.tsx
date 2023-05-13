@@ -6,18 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-// import { Slide1 } from "./slides";
-import { Box, Center, vars } from "@kodiui/ui";
-import { SwiperNavButtons, Heading } from "@/components";
-// eslint-disable-next-line no-restricted-imports
-import { Gast } from "@/assets/svg/013";
+import { vars } from "@kodiui/ui";
+import { Slide1 } from "./slides";
 
 export const Hero = () => {
   return (
-    <CenterTemplate maxWidth={1000}>
-      <Box paddingTop="5xxl" />
-      <Box paddingTop="5xxl" />
-      <Box paddingTop="5xxl" />
+    <CenterTemplate>
       <Swiper
         spaceBetween={50}
         effect="fade"
@@ -28,19 +22,9 @@ export const Hero = () => {
         style={{ padding: vars.space.xs, zIndex: 0 }}
       >
         <SwiperSlide>
-          <Gast />
+          <Slide1 />
         </SwiperSlide>
-        <SwiperSlide>
-          <Center>
-            <Heading level="1" color="white">
-              Slide 2
-            </Heading>
-          </Center>
-        </SwiperSlide>
-        <Box paddingTop="5xxl" />
-        <Center>
-          <SwiperNavButtons />
-        </Center>
+        <SwiperSlide>slide 2</SwiperSlide>
       </Swiper>
     </CenterTemplate>
   );

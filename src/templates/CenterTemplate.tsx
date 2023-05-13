@@ -10,7 +10,7 @@ export const CenterTemplate: FC<PropsWithChildren & Props> = ({
   maxWidth = 1200,
 }) => {
   return (
-    <Center width="full" __maxwidth={maxWidth}>
+    <Center position="relative" width="full" __maxwidth={maxWidth}>
       {children}
     </Center>
   );

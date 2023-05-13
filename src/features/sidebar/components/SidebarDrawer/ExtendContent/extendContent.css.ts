@@ -19,7 +19,7 @@ export const extendContentRecipe = recipe({
         transform: "translateX(100%) skew(0deg)",
       },
       hidden: {
-        transform: "translateX(0%) skew(5deg)",
+        transform: "translateX(0%) skew(2deg)",
         opacity: 0,
       },
       none: {

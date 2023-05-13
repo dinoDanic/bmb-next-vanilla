@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, BoxProps } from "@kodiui/ui";
 import classNames from "classnames";
 import React, { FC, PropsWithChildren } from "react";

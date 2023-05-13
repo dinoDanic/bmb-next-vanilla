@@ -17,6 +17,9 @@ export const buttonRecipe = recipe({
     transition: `all 0.2s ease`,
     height: "fit-content",
     cursor: "pointer",
+    fontSize: vars.fontSize.xs,
+    fontWeight: "bold",
+    textTransform: "uppercase",
     ":hover": {
       transform: "scale(1.025)",
     },

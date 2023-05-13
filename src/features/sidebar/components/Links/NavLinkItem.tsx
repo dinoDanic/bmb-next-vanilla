@@ -11,7 +11,7 @@ export const NavLinkItem: FC<NavLink> = (link) => {
   const isActive = activeNavLink === link.name;
   const isOpen = activeNavLink !== undefined;
 
-  const color = isActive ? "brand" : isOpen ? "black" : "white";
+  const color = isActive ? "brand" : isOpen ? "black" : "black";
 
   const onMouseLeave = () => setCategoryLink(undefined);
 

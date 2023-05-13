@@ -20,7 +20,7 @@ export const SidebarDrawer = () => {
       <Box
         width="full"
         position="absolute"
-        __left="-100%"
+        __left="-105%"
         height="screen"
         top="0"
         zIndex="20"
