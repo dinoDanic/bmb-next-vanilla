@@ -1,23 +1,37 @@
-console.log("server component home page");
-//
 // import { SectionCard } from "@/components";
 import { Hero } from "@/features/homePage";
 import { CenterTemplate } from "@/templates";
 import { Box } from "@kodiui/ui";
 // import { CategoriesTest } from "./CategoriesTest";
-import { graphql } from "@/gql";
-import { graphqlClient } from "@/lib/graphql-client";
+// import { graphql } from "@/gql";
+// import { graphqlClient } from "@/lib/graphql-client";
 
-const allProductsDocument = graphql(/* GraphQL */ `
-  query allProducts {
-    allProducts {
-      name
-    }
-  }
-`);
-
+// const allProductsDocument = graphql(/* GraphQL */ `
+//   query allProducts {
+//     allProducts {
+//       name
+//     }
+//   }
+// `);
+//
 export default async function Home() {
-  const data = await graphqlClient.request(allProductsDocument);
+  // const data = await graphqlClient.request(allProductsDocument);
+  const data = await fetch("http://167.235.150.40:4000/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+    query allProducts {
+      allProducts {
+        name
+      }
+    }
+  `,
+    }),
+  }).then((res) => res.json());
+
   return (
     <>
       <Box paddingTop="5xxl" />
@@ -31,7 +45,7 @@ export default async function Home() {
         {/* <BestSellingProducst /> */}
       </CenterTemplate>
       <div>
-        {data.allProducts?.map((p, i) => (
+        {data.data.allProducts?.map((p: any, i: number) => (
           <div key={i}>{p?.name}</div>
         ))}
       </div>
