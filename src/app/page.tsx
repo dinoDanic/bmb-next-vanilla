@@ -14,9 +14,16 @@ const allProductsDocument = graphql(/* GraphQL */ `
 
 export default function Home() {
   const { data } = useQuery(["products"], async () =>
-    request("http://127.0.0.1:4000/graphql", allProductsDocument)
+    request("http://167.235.150.40:4000/graphql", allProductsDocument)
   );
   console.log(data, "data");
 
-  return <>nikakav paged</>;
+  return (
+    <>
+      products:
+      {data?.allProducts?.map((product, i) => {
+        return <div key={i}>{product?.name}</div>;
+      })}
+    </>
+  );
 }
