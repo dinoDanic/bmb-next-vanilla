@@ -57,15 +57,15 @@ export type RootMutationTypeCreateLinkArgs = {
 
 export type RootQueryType = {
   __typename?: 'RootQueryType';
-  /** Get all links */
-  allLinks: Array<Link>;
   /** Get all products */
   allProducts?: Maybe<Array<Maybe<Product>>>;
-  /** Get active Categories */
-  getCategories?: Maybe<Array<Maybe<Category>>>;
+  /** Get categories by parent */
+  getCategoriesByParent?: Maybe<Array<Maybe<Category>>>;
+  /** Get parent Categories */
+  getParentCategories?: Maybe<Array<Maybe<Category>>>;
   /** Get Product by ID */
   getProductById?: Maybe<Product>;
-  /** Get Product by Category id */
+  /** Get Products by Category id */
   getProductsByCategoryId?: Maybe<Array<Maybe<Product>>>;
 };
 
@@ -82,7 +82,15 @@ export type RootQueryTypeGetProductsByCategoryIdArgs = {
 export type AllProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllProductsQuery = { __typename?: 'RootQueryType', allProducts?: Array<{ __typename?: 'Product', name: string } | null> | null };
+export type AllProductsQuery = { __typename?: 'RootQueryType', allProducts?: Array<{ __typename?: 'Product', id: string, name: string } | null> | null };
+
+export type GetProductByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
 
 
-export const AllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;
+export type GetProductByIdQuery = { __typename?: 'RootQueryType', getProductById?: { __typename?: 'Product', id: string, name: string } | null };
+
+
+export const AllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;
+export const GetProductByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getProductById"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<GetProductByIdQuery, GetProductByIdQueryVariables>;

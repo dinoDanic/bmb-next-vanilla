@@ -3,34 +3,11 @@ import { Hero } from "@/features/homePage";
 import { CenterTemplate } from "@/templates";
 import { Box } from "@kodiui/ui";
 // import { CategoriesTest } from "./CategoriesTest";
-// import { graphql } from "@/gql";
-// import { graphqlClient } from "@/lib/graphql-client";
+import { graphqlClient } from "@/lib/graphql-client";
+import { AllProductsDocument } from "@/gql/graphql";
 
-// const allProductsDocument = graphql(/* GraphQL */ `
-//   query allProducts {
-//     allProducts {
-//       name
-//     }
-//   }
-// `);
-//
 export default async function Home() {
-  // const data = await graphqlClient.request(allProductsDocument);
-  const data = await fetch("http://167.235.150.40:4000/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `
-    query allProducts {
-      allProducts {
-        name
-      }
-    }
-  `,
-    }),
-  }).then((res) => res.json());
+  const data = await graphqlClient.request(AllProductsDocument);
 
   return (
     <>
@@ -45,7 +22,7 @@ export default async function Home() {
         {/* <BestSellingProducst /> */}
       </CenterTemplate>
       <div>
-        {data.data.allProducts?.map((p: any, i: number) => (
+        {data.allProducts?.map((p: any, i: number) => (
           <div key={i}>{p?.name}</div>
         ))}
       </div>
