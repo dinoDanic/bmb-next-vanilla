@@ -12,7 +12,11 @@ interface Props {
 
 type ButtonType = BoxProps & Props & ButtonVariants;
 
-export const Button: FC<ButtonType> = ({ loading, ...props }) => {
+export const Button: FC<ButtonType> = ({
+  loading,
+  side = "left",
+  ...props
+}) => {
   const children = !loading ? (
     props.children
   ) : (
@@ -37,9 +41,9 @@ export const Button: FC<ButtonType> = ({ loading, ...props }) => {
         className={classNames(buttonStyle, recipe)}
         {...props}
       >
-        {props.side === "left" && props.icon}
+        {side === "left" && props.icon}
         {content}
-        {props.side === "right" && props.icon}
+        {side === "right" && props.icon}
       </Box>
     );
   }
@@ -49,8 +53,4 @@ export const Button: FC<ButtonType> = ({ loading, ...props }) => {
       {content}
     </Box>
   );
-};
-
-Button.defaultProps = {
-  side: "left",
 };

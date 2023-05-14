@@ -10,6 +10,7 @@ export const Sidebar = () => {
       justifyContent="space-between"
       top="0"
       width="full"
+      zIndex="30"
     >
       <Links />
       {/* <Logo /> */}
