@@ -1,8 +1,6 @@
-"use client";
-
 import { Sidebar } from "@/features/sidebar";
 import { ThemeProvider } from "@/styles";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+// import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -14,16 +12,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
 
   return (
     <html lang="en">
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <Sidebar />
-          {children}
-        </ThemeProvider>
-      </QueryClientProvider>
+      {/* <QueryClientProvider client={queryClient}> */}
+      <ThemeProvider>
+        <Sidebar />
+        {children}
+      </ThemeProvider>
+      {/* </QueryClientProvider> */}
     </html>
   );
 }

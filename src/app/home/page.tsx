@@ -4,8 +4,20 @@ console.log("server component home page");
 import { Hero } from "@/features/homePage";
 import { CenterTemplate } from "@/templates";
 import { Box } from "@kodiui/ui";
+// import { CategoriesTest } from "./CategoriesTest";
+import { graphql } from "@/gql";
+import { graphqlClient } from "@/lib/graphql-client";
 
-export default function Home() {
+const allProductsDocument = graphql(/* GraphQL */ `
+  query allProducts {
+    allProducts {
+      name
+    }
+  }
+`);
+
+export default async function Home() {
+  const data = await graphqlClient.request(allProductsDocument);
   return (
     <>
       <Box paddingTop="5xxl" />
@@ -18,6 +30,11 @@ export default function Home() {
         <Box paddingTop="5xxl" />
         {/* <BestSellingProducst /> */}
       </CenterTemplate>
+      <div>
+        {data.allProducts?.map((p, i) => (
+          <div key={i}>{p?.name}</div>
+        ))}
+      </div>
     </>
   );
 }
