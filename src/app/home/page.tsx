@@ -3,11 +3,11 @@ import { Hero } from "@/features/homePage";
 import { CenterTemplate } from "@/templates";
 import { Box } from "@kodiui/ui";
 // import { CategoriesTest } from "./CategoriesTest";
-import { graphqlClient } from "@/lib/graphql-client";
-import { AllProductsDocument } from "@/gql/graphql";
+// import { graphqlClient } from "@/lib/graphql-client";
+// import { AllProductsDocument } from "@/gql/graphql";
 
 export default async function Home() {
-  const data = await graphqlClient.request(AllProductsDocument);
+  // const data = await graphqlClient.request(AllProductsDocument);
 
   return (
     <>
@@ -22,9 +22,9 @@ export default async function Home() {
         {/* <BestSellingProducst /> */}
       </CenterTemplate>
       <div>
-        {data.allProducts?.map((p: any, i: number) => (
-          <div key={i}>{p?.name}</div>
-        ))}
+        {/* {data.allProducts?.map((p: any, i: number) => ( */}
+        {/*   <div key={i}>{p?.name}</div> */}
+        {/* ))} */}
       </div>
     </>
   );
