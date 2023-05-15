@@ -1,3 +1,65 @@
+# Use a smaller base image
+# FROM node:18-alpine3.14 AS base
+#
+# # Install dependencies only when needed
+# FROM base AS deps
+# RUN apk add --no-cache libc6-compat
+# WORKDIR /app
+#
+# # Use multi-line arguments to set environment variables
+# ARG NEXT_TELEMETRY_DISABLED=1
+# ENV NODE_ENV=production \
+#   NEXT_TELEMETRY_DISABLED=$NEXT_TELEMETRY_DISABLED \
+#   PORT=3000
+#
+# # Install dependencies based on the preferred package manager
+# COPY package*.json ./
+# RUN \
+#   if [ -f yarn.lock ]; then \
+#   yarn --frozen-lockfile; \
+#   elif [ -f package-lock.json ]; then \
+#   npm ci; \
+#   elif [ -f pnpm-lock.yaml ]; then \
+#   yarn global add pnpm && pnpm i --frozen-lockfile; \
+#   else \
+#   echo "Lockfile not found." && exit 1; \
+#   fi
+#
+# # Rebuild the source code only when needed
+# FROM base AS builder
+# WORKDIR /app
+# COPY --from=deps /app/node_modules ./node_modules
+# COPY . .
+#
+# # Uncomment the following line to disable telemetry during build
+# # ARG NEXT_TELEMETRY_DISABLED=1
+#
+# RUN pnpm build
+#
+# # If using npm comment out above and use below instead
+# # RUN npm run build
+#
+# # Production image, copy all the files and run next
+# FROM base AS runner
+# WORKDIR /app
+#
+# RUN apk add --no-cache su-exec
+# RUN addgroup -g 1001 -S nodejs
+# RUN adduser -S -u 1001 -G nodejs nextjs
+#
+# COPY --from=builder /app/public ./public
+#
+# # Automatically leverage output traces to reduce image size
+# # https://nextjs.org/docs/advanced-features/output-file-tracing
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+#
+# USER nextjs
+#
+# EXPOSE 3000
+#
+# CMD ["node", "server.js"]
+#----------------------------------------------------------------------------------
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
@@ -27,7 +89,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+RUN pnpm build
 
 # If using npm comment out above and use below instead
 # RUN npm run build
