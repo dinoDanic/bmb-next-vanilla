@@ -1,23 +1,23 @@
+import { Category } from "@/gql/graphql";
 import { create } from "zustand";
-import { NavLinkNames } from "../utils/navLinks";
-import { MenuLink } from "../components/MenuLink";
 
 interface ThemeStore {
-  activeNavLink: NavLinkNames | undefined;
-  activeCategoryLink: MenuLink | undefined;
-  setActiveNavLink: (name: NavLinkNames | undefined) => void;
-  setCategoryLink: (link: MenuLink | undefined) => void;
-  resetStore: () => void;
+  isSidebarActive: boolean;
+  activeCategory: Category | null;
+  setSidebarActive: (state: boolean) => void;
+  setActiveCategory: (category: Category) => void;
+  clearStore: () => void;
 }
 
 const initialState = {
-  activeNavLink: undefined,
-  activeCategoryLink: undefined,
+  isSidebarActive: false,
+  activeCategory: null,
+  // ------------- DEPRECATED
 };
 
 export const useSidebarStore = create<ThemeStore>((set) => ({
   ...initialState,
-  setActiveNavLink: (name) => set(() => ({ activeNavLink: name })),
-  setCategoryLink: (name) => set(() => ({ activeCategoryLink: name })),
-  resetStore: () => set(() => initialState),
+  setSidebarActive: (state) => set(() => ({ isSidebarActive: state })),
+  setActiveCategory: (category) => set(() => ({ activeCategory: category })),
+  clearStore: () => set(() => initialState),
 }));

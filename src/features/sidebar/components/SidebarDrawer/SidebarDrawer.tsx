@@ -1,65 +1,19 @@
-"use client";
-
-import { Box } from "@kodiui/ui";
 import React from "react";
-import { useSidebarStore } from "../../stores/useSidebarStore";
-import { sideBarOpen } from "./sidebarDrawer.css";
 import { Layer } from "./Layer";
-import { Products } from "./linkCategories";
+import { ClientTrigger } from "./ClientTrigger";
+import { SidebarContent } from "./SidebarContent";
 import { ExtendContent } from "./ExtendContent";
 
 export const SidebarDrawer = () => {
-  const { activeNavLink } = useSidebarStore();
-
-  const ifHaveActiveLink = activeNavLink !== undefined;
-
-  const state = ifHaveActiveLink ? "active" : undefined;
-
   return (
     <>
-      <Box
-        width="full"
-        position="absolute"
-        __left="-105%"
-        height="screen"
-        top="0"
-        zIndex="20"
-      >
-        <div
-          className={sideBarOpen({
-            state,
-          })}
-        >
-          <ExtendContent />
-          <SidebarContent />
-        </div>
-      </Box>
+      <ClientTrigger>
+        {/* this is not an error. Typescirpt dose not know about server components*/}
+        {/* @ts-expect-error Server Component */}
+        <SidebarContent />
+        <ExtendContent />
+      </ClientTrigger>
       <Layer />
     </>
-  );
-};
-
-const SidebarContent = () => {
-  const { activeNavLink } = useSidebarStore();
-  const contentByCategory = (): JSX.Element => {
-    switch (activeNavLink) {
-      case "Proizvodi":
-        return <Products />;
-      default:
-        return <>Did not handle link</>;
-    }
-  };
-  return (
-    <Box
-      position="absolute"
-      width="full"
-      height="full"
-      zIndex="30"
-      background="white"
-      p="2xl"
-    >
-      <Box paddingTop="5xxl" />
-      {contentByCategory()}
-    </Box>
   );
 };

@@ -8,6 +8,7 @@ import { Box } from "@kodiui/ui";
 
 export default async function Home() {
   // const data = await graphqlClient.request(AllProductsDocument);
+  console.log("server component");
 
   return (
     <>
@@ -20,6 +21,7 @@ export default async function Home() {
         <Box paddingTop="5xxl" />
         <Box paddingTop="5xxl" />
         {/* <BestSellingProducst /> */}
+        lol
       </CenterTemplate>
       <div>
         {/* {data.allProducts?.map((p: any, i: number) => ( */}

@@ -13,6 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+    "query getParentCategories {\n  getParentCategories {\n    id\n    name\n  }\n}\n\nquery getCategoriesByParentId($parentId: ID!) {\n  getCategoriesByParentId(parentId: $parentId) {\n    id\n    name\n    parentId\n  }\n}\n\nquery getChildCategories {\n  getChildCategories {\n    id\n    name\n    parentId\n  }\n}": types.GetParentCategoriesDocument,
     "query allProducts {\n  allProducts {\n    id\n    name\n  }\n}\n\nquery getProductById($id: ID!) {\n  getProductById(id: $id) {\n    id\n    name\n  }\n}": types.AllProductsDocument,
 };
 
@@ -30,6 +31,10 @@ const documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getParentCategories {\n  getParentCategories {\n    id\n    name\n  }\n}\n\nquery getCategoriesByParentId($parentId: ID!) {\n  getCategoriesByParentId(parentId: $parentId) {\n    id\n    name\n    parentId\n  }\n}\n\nquery getChildCategories {\n  getChildCategories {\n    id\n    name\n    parentId\n  }\n}"): (typeof documents)["query getParentCategories {\n  getParentCategories {\n    id\n    name\n  }\n}\n\nquery getCategoriesByParentId($parentId: ID!) {\n  getCategoriesByParentId(parentId: $parentId) {\n    id\n    name\n    parentId\n  }\n}\n\nquery getChildCategories {\n  getChildCategories {\n    id\n    name\n    parentId\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
