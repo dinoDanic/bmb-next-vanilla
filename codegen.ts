@@ -4,7 +4,6 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 const config: CodegenConfig = {
   overwrite: true,
   schema: graphqlApi,
-  // schema: "http://167.235.150.40:4000/graphql",
   documents: "src/**/*.graphql",
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
