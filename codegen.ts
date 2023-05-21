@@ -1,7 +1,6 @@
 import { graphqlApi } from "./src/helpers/api";
-import type { CodegenConfig } from "@graphql-codegen/cli";
 
-const config: CodegenConfig = {
+const config = {
   overwrite: true,
   schema: graphqlApi,
   documents: "src/**/*.graphql",
