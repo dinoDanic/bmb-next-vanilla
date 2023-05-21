@@ -44,7 +44,7 @@ ENV NEXT_PUBLIC_GRAPHQL_API=$NEXT_PUBLIC_GRAPHQL_API
 RUN echo "NEXT_PUBLIC_GRAPHQL_API=$NEXT_PUBLIC_GRAPHQL_API"
 
 
-RUN yarn build 
+RUN yarn build && NEXT_PUBLIC_GRAPHQL_API=$NEXT_PUBLIC_GRAPHQL_API
 
 
 # If using npm comment out above and use below instead
