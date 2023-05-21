@@ -2,4 +2,4 @@
 
 docker build \
     -t $docker_hub_repo_name \
-    --build-arg next_public_graphql_api=$next_public_graphql_api .
+    --build-arg NEXT_PUBLIC_GRAPHQL_API=$next_public_graphql_api .
