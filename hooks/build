@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-docker build \
-    -t $docker_hub_repo_name \
-    --build-arg NEXT_PUBLIC_GRAPHQL_API=$next_public_graphql_api .
