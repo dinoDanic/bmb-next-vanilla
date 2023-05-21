@@ -1,4 +1,5 @@
-import { graphqlApi } from "@/helpers";
 import { GraphQLClient } from "graphql-request";
 
-export const graphqlClient = new GraphQLClient(graphqlApi || "");
+export const graphqlClient = new GraphQLClient(
+  process.env.NEXT_PUBLIC_GRAPHQL_API as string
+);
