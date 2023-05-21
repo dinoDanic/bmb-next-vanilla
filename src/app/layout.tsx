@@ -1,7 +1,3 @@
-import { Sidebar } from "@/features/sidebar";
-import { QueryProvider } from "@/lib";
-import { ThemeProvider } from "@/styles";
-
 export default function RootLayout({
   children,
 }: {
@@ -9,12 +5,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <QueryProvider>
-        <ThemeProvider>
-          <Sidebar />
-          {children}
-        </ThemeProvider>
-      </QueryProvider>
+      <body>{children}</body>
     </html>
   );
 }
