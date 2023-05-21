@@ -4,9 +4,6 @@ FROM node:18 AS base
 FROM base AS deps
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends python make g++ \
-  && rm -rf /var/lib/apt/lists/*
-
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
