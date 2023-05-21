@@ -27,8 +27,17 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# ARG next_public_graphql_api
+# ENV NEXT_PUBLIC_GRAPHQL_API=$next_public_graphql_api
+#
+# RUN echo NEXT_PUBLIC_GRAPHQL_API
 
-RUN yarn build
+COPY .env.local ./
+
+RUN echo "NEXT_PUBLIC_GRAPHQL_API=$(cat .env.local)" >> .env
+
+RUN yarn build 
+
 
 # If using npm comment out above and use below instead
 # RUN npm run build
