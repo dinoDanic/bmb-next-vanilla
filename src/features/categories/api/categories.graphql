@@ -1,22 +1,10 @@
-query getParentCategories {
-  getParentCategories {
+query getCategories {
+  getCategories {
     id
     name
-  }
-}
-
-query getCategoriesByParentId($parentId: ID!) {
-  getCategoriesByParentId(parentId: $parentId) {
-    id
-    name
-    parentId
-  }
-}
-
-query getChildCategories {
-  getChildCategories {
-    id
-    name
-    parentId
+    childrens {
+      id
+      name
+    }
   }
 }

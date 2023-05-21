@@ -5,7 +5,7 @@ import { useSidebarStore } from "@/features/sidebar";
 import { Box } from "@kodiui/ui";
 import { FC } from "react";
 
-export const NavLinkItem: FC<{ name: string }> = ({ name }) => {
+export const ProductTrigger: FC = () => {
   const { isSidebarActive, setSidebarActive } = useSidebarStore();
 
   const color = isSidebarActive ? "brand" : "black";
@@ -18,7 +18,7 @@ export const NavLinkItem: FC<{ name: string }> = ({ name }) => {
       cursor="pointer"
     >
       <Text weight="medium" size="small" color={color}>
-        {name}
+        Proizvodi
       </Text>
     </Box>
   );

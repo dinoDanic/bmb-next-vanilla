@@ -1,15 +1,13 @@
 import React from "react";
 import { Box, Stack } from "@kodiui/ui";
 import { graphqlClient } from "@/lib";
-import { GetParentCategoriesDocument } from "@/gql/graphql";
 import { CategoryLink } from "./CategoryLink/CategoryLink";
+import { GetCategoriesDocument } from "@/gql/graphql";
 
 export const SidebarContent = async () => {
   console.log("im i server?");
 
-  const { getParentCategories } = await graphqlClient.request(
-    GetParentCategoriesDocument
-  );
+  const { getCategories } = await graphqlClient.request(GetCategoriesDocument);
 
   return (
     <Box
@@ -22,7 +20,7 @@ export const SidebarContent = async () => {
     >
       <Box paddingTop="5xxl" />
       <Stack>
-        {getParentCategories?.map((category) => {
+        {getCategories?.map((category) => {
           if (!category?.name) return null;
           return <CategoryLink key={category?.id} {...category} />;
         })}

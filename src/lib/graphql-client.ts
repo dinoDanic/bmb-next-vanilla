@@ -1,6 +1,12 @@
 import { GraphQLClient } from "graphql-request";
 
 export const graphqlClient = new GraphQLClient(
-  "http://167.235.150.40:4000/graphql"
-  // "http://0.0.0.0:4000/graphql"
+  // "http://167.235.150.40:4000/graphql",
+  "http://0.0.0.0:4000/graphql",
+  {
+    headers: {
+      authorization:
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoxLCJpbXBlcnNvbmF0ZSI6ZmFsc2UsImF1ZCI6Ikpva2VuIiwiZXhwIjoxNjg0NDIwNTk3LCJpYXQiOjE2ODQ0MTMzOTcsImlzcyI6Ikpva2VuIiwianRpIjoiMnRnM3EzczNtcnNhdW1qMXBvMDAwMDU1IiwibmJmIjoxNjg0NDEzMzk3fQ.iDcY0sAXoiNw56PgTTW7J-4IRvE3vSA5YnD8b6pYSYk0bkeBRbdvsJk1hQfdSeWTvmbZvHF1GyvwpSkmDTh352daO2Sd4rBe_J0oL3qCS8Q32lLquziAe9fYIkYebHZAAoXyUkEXFaQ683k8vhIT9y-4t8m8XHhwsnyQSgy5maGNnbdFNDEl4pyheC2EtxxxfbapsVlA8vjsRFJI1PN3L7lGyYaP1wUGwJqva44fXfIiJxv8Q67x9H1NtwFsyH8_ezFoWm1hSokxx7iEylgcGG5fyZQgTIHyhaR4sf0zJVqhuCqJKTBVnR_9ytDGuDGpBSwakclFPIbILW4-FTZ0yRk80YEREQV2OmHvhVaszwAPThjYXJHVfEB2dkD28b1Oldw-5S2-_Y3j2tXTQvS1OBzDCV4KA7dSstoy5AMJpLV_xPSh-JQZmjcY4fbDyddV3KZNTZfLK8Zi5ZHZTj4nsHtZEuIOmuqQb8A5ZpItSsVmJP68sFC0rNZsX_1bMEwA7ClDQRzS91FiV9Ax-cUwfiwnlLU8ccMb8DbYvteEdHRf6aWnGpKQQnp93j0AmlbGgMId4lJdpfLgdSD-NwdzYwWMxEfWMS7rW8ltjhgNddhmOKVwpRiurPwFfzjt2pPJFxU-VH07BidBW1sF3KKFg2q-RQj4EII4aJ0onXuNTAw",
+    },
+  }
 );

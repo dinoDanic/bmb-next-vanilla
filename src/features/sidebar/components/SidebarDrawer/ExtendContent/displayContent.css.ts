@@ -1,7 +1,7 @@
 import { vars } from "@kodiui/ui";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const extendContentRecipe = recipe({
+export const styleRecipe = recipe({
   base: {
     position: "absolute",
     top: "0",

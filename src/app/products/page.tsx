@@ -1,4 +1,5 @@
 import { AllProductsDocument } from "@/gql/graphql";
+
 import { graphqlClient } from "@/lib";
 import { Stack } from "@kodiui/ui";
 import Link from "next/link";

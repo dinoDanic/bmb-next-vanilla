@@ -1,11 +1,11 @@
 import { Box } from "@kodiui/ui";
 import { SidebarDrawer } from "../SidebarDrawer";
-import { NavLinkItem } from "./NavLinkItem";
+import { ProductTrigger } from "./ProductTrigger";
 
-export const Links = () => {
+export const Products = () => {
   return (
     <Box p="2xl" minWidth="96" position="relative">
-      <NavLinkItem name="Proizvodi" />
+      <ProductTrigger />
       <SidebarDrawer />
     </Box>
   );
