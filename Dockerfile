@@ -32,9 +32,12 @@ ENV NEXT_TELEMETRY_DISABLED 1
 #
 # RUN echo NEXT_PUBLIC_GRAPHQL_API
 
-COPY .env.local ./
+# COPY .env.local ./
 
-RUN echo "NEXT_PUBLIC_GRAPHQL_API=$(cat .env.local)" >> .env
+# RUN echo "NEXT_PUBLIC_GRAPHQL_API=$(cat .env.local)" >> .env
+
+ARG NEXT_PUBLIC_GRAPHQL_API 
+ENV NEXT_PUBLIC_GRAPHQL_API $NEXT_PUBLIC_GRAPHQL_API
 
 RUN yarn build 
 
